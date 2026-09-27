@@ -761,14 +761,14 @@ padding:26px 30px; transform:translateY(-100%); transition:transform .5s cubic-b
 
 <script>
   const PRODUCTS = [
-    { formula:"KCl", name:"Potassium Chloride", desc:"An inorganic salt widely used across industrial applications and as a component of certain drilling-fluid systems. Transocean has extensive historical experience in the international supply of Jordanian-origin Potassium Chloride." },
-    { formula:"BaSO\u2084", name:"Barite", desc:"A naturally occurring barium sulfate mineral widely used as a weighting material within drilling-fluid applications." },
-    { formula:"\u2014", name:"Bentonite", desc:"A clay-based material commonly used in drilling-fluid applications for viscosity, suspension and fluid-management purposes." },
-    { formula:"CaCl\u2082", name:"Calcium Chloride", desc:"A versatile inorganic salt used across industrial applications and in certain drilling and completion-fluid systems." },
-    { formula:"HCl", name:"Hydrochloric Acid", desc:"A widely used industrial acid with applications across multiple sectors, including certain oilfield operations." },
-    { formula:"CaCO\u2083", name:"Calcium Carbonate", desc:"A mineral material used across numerous industrial applications and within selected drilling-fluid formulations." },
-    { formula:"K\u2082SO\u2084", name:"Potassium Sulfate", desc:"A potassium-based inorganic salt supplied for industrial and commercial applications according to customer requirements." },
-    { formula:"NaOH", name:"Caustic Soda", desc:"Sodium hydroxide is a widely used industrial chemical used across numerous chemical-processing and oilfield-related applications." },
+    { slug:"potassium-chloride", formula:"KCl", name:"Potassium Chloride", desc:"An inorganic salt widely used across industrial applications and as a component of certain drilling-fluid systems. Transocean has extensive historical experience in the international supply of Jordanian-origin Potassium Chloride." },
+    { slug:"barite", formula:"BaSO\u2084", name:"Barite", desc:"A naturally occurring barium sulfate mineral widely used as a weighting material within drilling-fluid applications." },
+    { slug:"bentonite", formula:"\u2014", name:"Bentonite", desc:"A clay-based material commonly used in drilling-fluid applications for viscosity, suspension and fluid-management purposes." },
+    { slug:"calcium-chloride", formula:"CaCl\u2082", name:"Calcium Chloride", desc:"A versatile inorganic salt used across industrial applications and in certain drilling and completion-fluid systems." },
+    { slug:"hydrochloric-acid", formula:"HCl", name:"Hydrochloric Acid", desc:"A widely used industrial acid with applications across multiple sectors, including certain oilfield operations." },
+    { slug:"calcium-carbonate", formula:"CaCO\u2083", name:"Calcium Carbonate", desc:"A mineral material used across numerous industrial applications and within selected drilling-fluid formulations." },
+    { slug:"potassium-sulfate", formula:"K\u2082SO\u2084", name:"Potassium Sulfate", desc:"A potassium-based inorganic salt supplied for industrial and commercial applications according to customer requirements." },
+    { slug:"caustic-soda", formula:"NaOH", name:"Caustic Soda", desc:"Sodium hydroxide is a widely used industrial chemical used across numerous chemical-processing and oilfield-related applications." },
   ];
 
   const grid = document.getElementById('productGrid');
@@ -781,7 +781,10 @@ padding:26px 30px; transform:translateY(-100%); transition:transform .5s cubic-b
         <div class="pname">${p.name}</div>
         <div class="pdesc">${p.desc}</div>
       </div>
-      <a href="#contact" class="pquote" data-product="${p.name}">Request Quote <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px;">
+        <a href="product.html?slug=${p.slug}" class="pquote" style="margin-top:0;">View Product <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <a href="#contact" class="pquote" data-product="${p.name}" style="margin-top:8px; opacity:0.7;">Request Quote &rarr;</a>
     `;
     grid.appendChild(card);
   });
